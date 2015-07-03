@@ -33,7 +33,7 @@
 %\setbeamercovered{transparent} 
 %\setbeamertemplate{navigation symbols}{} 
 %\logo{} 
-\institute{FOSS4G Europe 2015, Como}
+\institute{FOSS4G Europe 2015, Como, Italy}
 \date{} 
 %\subject{}
 
@@ -79,8 +79,9 @@
 \end{frame}
 
 \begin{frame}{GIS.lab}
-	Designed to get maximum with minimal cost !
+	\textbf{Instantly} in production with \textbf{no feeding} !
 	\begin{center}
+		%\ image: cow with QGIS, GRASS and PostGIS in bottles
 		\includegraphics[keepaspectratio=true,height=0.6\textheight]{images/cow.png}
 	\end{center}
 \end{frame}
@@ -134,7 +135,8 @@
 		\item automatically installed
 		\item data storage
 		\item client launch support
-		\item central management of GIS.lab Cluster
+		\item OWS load balancing
+		\item central management
 	\end{itemize}
 \end{frame}
 
@@ -207,14 +209,14 @@
 		\includegraphics[keepaspectratio=true,height=0.6\textheight]{images/gislab-unit.png}
 	\end{center}
 	\begin{itemize}
-		\item portable, pocket size appliance
+		\item portable, pocket size
 		\item plug-and-play
 		\item automatic adaptation to host network
 	\end{itemize}
 \end{frame}
 
 
-\section{Desktop Client}
+\section{Client Interfaces}
 \begin{frame}
 	\begin{center}
 		\LARGE\textbf{Desktop Client}	
@@ -229,17 +231,28 @@
 	\begin{itemize}
 		\item network launch (PXE, HTTP)
 		\item physical hardware or virtual client mode
-		\item working even with multiple DHCP servers in LAN
+		\item working with every network configuration
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Maps Publishing}
+\begin{frame}{Desktop Client}
+	\begin{center}
+		%\ image: desktop client screenshot with QGIS, GRASS ...
+		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
+	\end{center}
+	\begin{itemize}
+		\item QGIS as the geospatial project IDE
+		\item integrated with GRASS 7 and others
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Maps Publishing on Web}
 	\begin{center}
 		%\ image: gis.lab web plugin
 		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
 	\end{center}
 	\begin{itemize}
-		\item GIS.lab Web QGIS plugin
+		\item publish any QGIS project with GIS.lab Web QGIS
 	\end{itemize}
 \end{frame}
 
@@ -268,11 +281,87 @@
 	\end{lstlisting}
 \end{frame}
 
-%\desktop - Physical-Virtual, PXE, Http boot (better performace for virtual clients, more possibilities), maps publishing, customization, image distribution, rollback
-%\web - themes, raster and vector layers, drawings, sharing ... OL3 
+
+\begin{frame}
+	\begin{center}
+		\LARGE\textbf{Web and Mobile Client}	
+	\end{center}
+\end{frame}
+
+\begin{frame}{Web and Mobile Client}
+	\begin{center}
+		%\ image: web and mobile client screenshots
+		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
+	\end{center}
+\end{frame}
+
+
+\section{GIS.lab Cluster}
+\begin{frame}
+	\begin{center}
+		\LARGE\textbf{GIS.lab Cluster}	
+	\end{center}
+\end{frame}
+
+\begin{frame}{Automatic clustering}
+	\begin{center}
+		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/serf.png}
+	\end{center}
+	\begin{itemize}
+		\item decentralized cluster membership and failure detection system based on GOSSIP protocol
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Cluster management}
+	\begin{itemize}
+		\item based on cluster events, queries tags
+	\end{itemize}
+
+	\lstset{language=sh}
+	\begin{lstlisting}
+		$ gislab-cluster members
+		$ gislab-cluster event <EVENT-NAME>
+		$ gislab-cluster query <QUERY-NAME>		
+	\end{lstlisting}
+
+	\lstset{language=sh}
+	\begin{lstlisting}
+		$ gislab-cluster members
+		server.gis.lab  192.168.15.5:7946 
+		                alive  role=server
+
+		c50             192.168.15.50:7946
+		                alive
+		                role=client,worker=yes,session-active=user1
+
+		c51             192.168.15.51:7946
+		                left
+		                role=client,worker=yes
+	\end{lstlisting}
+\end{frame}
+
+
+%\ clustering and management, Serf, decentralized GOSSIP. failure detection, events, queries 
+%\ OWS load ballancing
+%\ parallel computing
+
+
+\section{Other}
+\begin{frame}
+	\begin{center}
+		\LARGE\textbf{Other}
+	\end{center}
+\end{frame}
+
+%\ Intergation tests
+\begin{frame}{Tests}
+\end{frame}
+
+%\web - themes, raster and vector layers, drawings, sharing ... OL3, WPS
 %\mobile
 
 %\ resources sharing, clustering, pssh
+%\ authors
 %\ Amazon
 
 
