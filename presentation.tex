@@ -24,7 +24,9 @@
 	basicstyle=\ttfamily\scriptsize,
 	backgroundcolor=\color{codeblock},
 	commentstyle=\color{blue},
-	breaklines=true
+	breaklines=true,
+	breakatwhitespace=true,
+	showstringspaces=false
 }
 
 \title{GIS.lab}
@@ -116,6 +118,7 @@
 		\item collaboration tools
 		\item fits in your pocket \textbf{pocket}
 		\item or \textbf{LAN, data center} and \textbf{cloud}
+		\item self contained - no dependency on other service or Internet
 	\end{itemize}
 \end{frame}
 
@@ -132,11 +135,11 @@
 		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
 	\end{center}
 	\begin{itemize}
-		\item automatically installed
-		\item data storage
-		\item client launch support
+		\item GIS.lab infrastructure orchestration conductor
+		\item data storage and sharing
 		\item OWS load balancing
 		\item central management
+		\item client launch support
 	\end{itemize}
 \end{frame}
 
@@ -174,7 +177,18 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}[fragile]{Automatic provisioning}
+\begin{frame}{Ansible}
+	\begin{center}
+		\includegraphics[keepaspectratio=true,height=0.4\textheight]{images/ansible.png}
+	\end{center}
+	\begin{itemize}
+		\item no requirements on target machine except SSH
+		\item idempotent modules, templates
+		\item cloud providers AWS, GCE, Digital Ocean, Azure ...
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Ansible provisioning}
 	\begin{center}
 		\includegraphics[keepaspectratio=true,height=0.4\textheight]{images/ansible.png}
 	\end{center}
@@ -188,7 +202,7 @@
 	\end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{Development, testing, evaluation - virtual machine}
+\begin{frame}[fragile]{Virtual Machine - Development and Testing}
 	\begin{center}
 		\includegraphics[keepaspectratio=true,height=0.4\textheight]{images/vagrant.png}
 		\includegraphics[keepaspectratio=true,height=0.4\textheight]{images/virtualbox.png}
@@ -204,9 +218,9 @@
 	\end{lstlisting}
 \end{frame}
 
-\begin{frame}{End User Deployment - GIS.lab Unit}
+\begin{frame}{GIS.lab Unit - End User Deployment}
 	\begin{center}
-		\includegraphics[keepaspectratio=true,height=0.6\textheight]{images/gislab-unit.png}
+		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/gislab-unit.png}
 	\end{center}
 	\begin{itemize}
 		\item portable, pocket size
@@ -232,6 +246,17 @@
 		\item network launch (PXE, HTTP)
 		\item physical hardware or virtual client mode
 		\item working with every network configuration
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Physical or Virtual Mode}
+	\begin{center}
+		%\ image: Physycal or Virtual Mode
+		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
+	\end{center}
+	\begin{itemize}
+		\item physical mode: best performance, access to original OS is temporary lost
+		\item virtual mode: running inside any OS, benefit of using original OS and GIS.lab at once
 	\end{itemize}
 \end{frame}
 
@@ -281,6 +306,19 @@
 	\end{lstlisting}
 \end{frame}
 
+\begin{frame}{Office Suite}
+	\begin{center}
+		%\ image: office suite
+		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
+	\end{center}
+	\begin{itemize}
+		\item general usage desktop productivity platform
+		\item data storage and sharing
+		\item collaboration
+		\item central management
+	\end{itemize}
+\end{frame}
+
 
 \begin{frame}
 	\begin{center}
@@ -293,40 +331,39 @@
 		%\ image: web and mobile client screenshots
 		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
 	\end{center}
+	\begin{itemize}
+		\item themes, base and overlay layers
+		\item advanced search forms
+		\item print outputs
+		\item vector features drawing and sharing
+	\end{itemize}
 \end{frame}
 
 
-\section{GIS.lab Cluster}
+\section{Cluster}
 \begin{frame}
 	\begin{center}
-		\LARGE\textbf{GIS.lab Cluster}	
+		\LARGE\textbf{Cluster}	
 	\end{center}
 \end{frame}
 
-\begin{frame}{Automatic clustering}
+\begin{frame}{Automatic Cluster Orchestration}
 	\begin{center}
 		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/serf.png}
 	\end{center}
 	\begin{itemize}
+		\item server + client machines
 		\item decentralized cluster membership and failure detection system based on GOSSIP protocol
 	\end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Cluster management}
-	\begin{itemize}
-		\item based on cluster events, queries tags
-	\end{itemize}
+\begin{frame}[fragile]{Cluster Management}
+	\textbf{Machines information}
 
 	\lstset{language=sh}
 	\begin{lstlisting}
 		$ gislab-cluster members
-		$ gislab-cluster event <EVENT-NAME>
-		$ gislab-cluster query <QUERY-NAME>		
-	\end{lstlisting}
 
-	\lstset{language=sh}
-	\begin{lstlisting}
-		$ gislab-cluster members
 		server.gis.lab  192.168.15.5:7946 
 		                alive  role=server
 
@@ -340,10 +377,65 @@
 	\end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]{Cluster Management}
+	\textbf{Events and queries}
 
-%\ clustering and management, Serf, decentralized GOSSIP. failure detection, events, queries 
-%\ OWS load ballancing
-%\ parallel computing
+	\lstset{language=sh}
+	\begin{lstlisting}
+		$ gislab-cluster event <EVENT-NAME>
+		$ gislab-cluster query <QUERY-NAME>		
+	\end{lstlisting}
+
+	\lstset{language=sh}
+	\begin{lstlisting}
+		$ gislab-cluster event reboot
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Cluster Management}
+	\textbf{Executing cross-cluster commands}
+
+	\lstset{language=sh}
+	\begin{lstlisting}
+		$ MACHINES="$(
+		    gislab-cluster members -tag role=client -status=alive
+		    | awk -F " " '{printf "%s ", $1}'
+		  )"
+
+		$ parallel-ssh
+		  -O StrictHostKeyChecking=no -i -H "$MACHINES"
+
+		  sudo DEBIAN_FRONTEND=noninteractive
+		  apt-get install -y --no-install-recommends gedit
+		  ...
+		  [1] 23:02:57 [SUCCESS] c51
+		  [1] 23:02:57 [SUCCESS] c51
+		  ...
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Stronger With Each Client Machine}
+	\textbf{Universal usage of each machine - full hardware potential utilization}
+	\begin{itemize}
+		\item desktop working environment
+		\item cluster worker node (OWS services, parallel tasks)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Stronger With Each Client Machine}
+	\textbf{OWS load balancing}
+
+	\lstset{language=sh}
+	\begin{lstlisting}
+		$ while true; do
+		    curl "http://ms.gis.lab:90/cgi-bin/qgis_mapserv?
+		      SERVICE=WMS&REQUEST=GetCapabilities"
+		  done
+	\end{lstlisting}
+	\begin{center}
+		\includegraphics[keepaspectratio=true,width=\textwidth]{images/haproxy-stats.png}
+	\end{center}
+\end{frame}
 
 
 \section{Other}
@@ -353,16 +445,44 @@
 	\end{center}
 \end{frame}
 
-%\ Intergation tests
-\begin{frame}{Tests}
+\begin{frame}[fragile]{Tests}
+	\textbf{Integration test suite based on Ansible tasks}
+	
+	\lstset{language=sh}
+	\begin{lstlisting}
+		$ vagrant provision --provision-with test
+		...
+		TASK: [basic-server-configuration-test | Test if ordinary test user account exists in PostgreSQL]
+		...
+		TASK: [service-dns-test | Test 'gis.lab' DNS records are resolved]
+		...
+		TASK: [service-mapserver-test | Test WMS GetCapabilies request with example GIS.lab project]
+		...
+		TASK: [service-mapserver-test | Test WMS GetMap request with example GIS.lab project]
+		...
+	\end{lstlisting}
 \end{frame}
 
-%\web - themes, raster and vector layers, drawings, sharing ... OL3, WPS
-%\mobile
+\begin{frame}{Where to use ?}
+	\begin{itemize}
+		\item schools, universities - central management, maintenance-free desktop clients
+		\item ...
+	\end{itemize}
+\end{frame}
 
-%\ resources sharing, clustering, pssh
-%\ authors
-%\ Amazon
+\begin{frame}{Future plans}
+	\begin{itemize}
+		\item integration of WPS services
+		\item better integration of GRASS
+		\item web administration interface
+		\item AWS provider rewrite
+		\item web client rewrite with OL 3
+		\item update to Ubuntu 16.04 and systemd
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Authors}
+\end{frame}
 
 
 % document END
