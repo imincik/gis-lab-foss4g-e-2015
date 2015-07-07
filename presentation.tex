@@ -340,6 +340,28 @@
 	\end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]{Booster File System}
+	\textbf{Test writing of 2 GB file}
+	\\
+	HDD
+	\lstset{language=sh}
+	\begin{lstlisting}
+		$ dd if=/dev/zero of=/tmp/test.f bs=1M count=2048
+		  2147483648 bytes (2,1 GB) copied, 24,8055 s, 86,6 MB/s
+	\end{lstlisting}
+
+	Booster
+	\lstset{language=sh}
+	\begin{lstlisting}
+		$ dd if=/dev/zero of=~/Booster/test.f bs=1M count=2048
+		  2147483648 bytes (2,1 GB) copied, 0,582147 s, 3,7 GB/s
+	\end{lstlisting}
+
+	\begin{itemize}
+		\item \textbf{super fast} file system in RAM
+		\item ideal for \textbf{temporary files}
+	\end{itemize}
+\end{frame}
 
 \begin{frame}
 	\begin{center}
@@ -373,17 +395,15 @@
 		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/serf.png}
 	\end{center}
 	\begin{itemize}
-		\item server + client machines
-		\item decentralized cluster membership and failure detection system based on GOSSIP protocol
+		\item formed by \textbf{server} and \textbf{client machines}
+		\item \textbf{decentralized} cluster \textbf{membership} and \textbf{failure detection} system based on GOSSIP protocol
 	\end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Cluster Management}
-	\textbf{Machines information}
-
+\begin{frame}[fragile]{Basic Information About Machines}
 	\lstset{language=sh}
 	\begin{lstlisting}
-		$ gislab-cluster members
+		$ gislab-cluster members					# format text or json 
 
 		server.gis.lab  192.168.15.5:7946 
 		                alive  role=server
@@ -398,24 +418,23 @@
 	\end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{Cluster Management}
-	\textbf{Events and queries}
-
+\begin{frame}[fragile]{Events and Queries}
+	\textbf{Syntax}
 	\lstset{language=sh}
 	\begin{lstlisting}
 		$ gislab-cluster event <EVENT-NAME>
 		$ gislab-cluster query <QUERY-NAME>		
 	\end{lstlisting}
 
+	\textbf{Reboot event}
 	\lstset{language=sh}
 	\begin{lstlisting}
 		$ gislab-cluster event reboot
 	\end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{Cluster Management}
-	\textbf{Executing cross-cluster commands}
-
+\begin{frame}[fragile]{Parallel Commands Execution}
+	\textbf{Example installation of Gedit package on all client machines}
 	\lstset{language=sh}
 	\begin{lstlisting}
 		$ MACHINES="$(
@@ -466,9 +485,7 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}[fragile]{Tests}
-	\textbf{Integration test suite based on Ansible tasks}
-	
+\begin{frame}[fragile]{Integration Test Suite}
 	\lstset{language=sh}
 	\begin{lstlisting}
 		$ vagrant provision --provision-with test
@@ -484,22 +501,22 @@
 	\end{lstlisting}
 \end{frame}
 
-\begin{frame}{Where to use ?}
+\begin{frame}{Where to Use ?}
 	\begin{itemize}
 		\item \textbf{schools}: central management, maintenance-free clients
 		\item \textbf{small projects}: immediate deployment of complete solution
-		\item \textbf{crisis management}: standalone system, no dependency on Internet
+		\item \textbf{crisis management}: standalone system, working w/o Internet
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Future plans}
+\begin{frame}{Future Plans}
 	\begin{itemize}
-		\item integration of WPS services
-		\item better integration of GRASS
-		\item web administration interface
-		\item AWS provider rewrite
-		\item web client rewrite with OL 3
-		\item update to Ubuntu 16.04 and systemd
+		\item integration of \textbf{WPS} services
+		\item better \textbf{GRASS} integration
+		\item \textbf{web administration} interface
+		\item \textbf{AWS} provider rewrite
+		\item \textbf{web client} rewrite with \textbf{OL 3}
+		\item update to \textbf{Ubuntu 16.04} and \textbf{systemd}
 	\end{itemize}
 \end{frame}
 
@@ -511,7 +528,7 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}{10 minutes from crap to mobile app for free}
+\begin{frame}{10 Minutes From Crap to Mobile App for Free}
 	\begin{center}
 		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
 	\end{center}
