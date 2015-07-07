@@ -49,6 +49,7 @@
 \end{frame}
 
 \begin{frame}{The Super Cow}
+	\textbf{3 years} old, \textbf{100 litres} of milk for \textbf{20 kg of GRASS} daily
 	\begin{center}
 		\includegraphics[keepaspectratio=true,height=0.6\textheight]{images/cow.png}
 	\end{center}
@@ -64,7 +65,7 @@
 
 \begin{frame}{The Problem}
 	\begin{center}
-		We always \textbf{need more than only one app} for our GIS work flow
+		We always need \textbf{more than only one app} for our GIS work flow
 	\end{center}
 \end{frame}
 
@@ -81,7 +82,7 @@
 \end{frame}
 
 \begin{frame}{GIS.lab}
-	\textbf{Instantly} in production with \textbf{no feeding} !
+	\textbf{Instantly} in production, \textbf{no feeding}
 	\begin{center}
 		%\ image: cow with QGIS, GRASS and PostGIS in bottles
 		\includegraphics[keepaspectratio=true,height=0.6\textheight]{images/cow.png}
@@ -111,48 +112,55 @@
 
 \begin{frame}{Features}
 	\begin{itemize}[<+->]
-		\item so simple \textbf{plug-and-play} deployment as home router
+		\item \textbf{plug-and-play} deployment
 		\item \textbf{central management}
 		\item \textbf{desktop, web and mobile} client interfaces
 		\item automatic \textbf{clustering and resources sharing}
-		\item collaboration tools
+		\item \textbf{collaboration} tools
 		\item fits in your pocket \textbf{pocket}
 		\item or \textbf{LAN, data center} and \textbf{cloud}
-		\item self contained - no dependency on other service or Internet
+		\item \textbf{self containing} technology
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{GIS.lab Architecture}
+\begin{frame}{GIS.lab Cluster Architecture}
 	\begin{center}
-		%\ image: schema server and clients
+		%\ image: gis.lab architecture
 		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
 	\end{center}
 \end{frame}
 
 \begin{frame}{GIS.lab Server}
+	%\ server image
 	\begin{center}
-		%\ image: schema storage and management (gears)
-		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
+		\includegraphics[keepaspectratio=true,height=0.3\textheight]{images/image.png}
 	\end{center}
 	\begin{itemize}
-		\item GIS.lab infrastructure orchestration conductor
-		\item data storage and sharing
-		\item OWS load balancing
-		\item central management
-		\item client launch support
+		\item \textbf{cluster} orchestration
+		\item \textbf{data storage} and \textbf{sharing}
+		\item \textbf{central} management
+		\item \textbf{load balancing} management
+		\item \textbf{client launch} support
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{GIS.lab Clients}
+	%\ clients image
 	\begin{center}
-		%\image: desktop + web + mobile
-		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
+		\includegraphics[keepaspectratio=true,height=0.3\textheight]{images/image.png}
 	\end{center}
 	\begin{itemize}
-		\item launched from GIS.lab Server 
-		\item user interfaces for data processing, analysis and collaboration
-		\item computing power for GIS.lab Cluster
+		\item launching \textbf{from server}
+		\item \textbf{user interfaces} for data processing, analysis and collaboration
+		\item \textbf{computing power} for cluster
 	\end{itemize}
+\end{frame}
+
+\begin{frame}{Desktop, Web and Mobile Interfaces}
+	\begin{center}
+		%\image: desktop + web + mobile schemas
+		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
+	\end{center}
 \end{frame}
 
 
@@ -177,18 +185,18 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}{Ansible}
+\begin{frame}{Automatic deployment}
 	\begin{center}
 		\includegraphics[keepaspectratio=true,height=0.4\textheight]{images/ansible.png}
 	\end{center}
 	\begin{itemize}
-		\item no requirements on target machine except SSH
-		\item idempotent modules, templates
-		\item cloud providers AWS, GCE, Digital Ocean, Azure ...
+		\item \textbf{no requirements on target machine} except SSH
+		\item idempotent \textbf{modules, templates}
+		\item \textbf{cloud providers} AWS, GCE, Digital Ocean, Azure ...
 	\end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Ansible provisioning}
+\begin{frame}[fragile]{Automatic deployment}
 	\begin{center}
 		\includegraphics[keepaspectratio=true,height=0.4\textheight]{images/ansible.png}
 	\end{center}
@@ -233,19 +241,33 @@
 \section{Client Interfaces}
 \begin{frame}
 	\begin{center}
-		\LARGE\textbf{Desktop Client}	
+		\LARGE\textbf{Client Interfaces}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Client Interfaces}
+	\begin{center}
+		%\ image: client interfaces
+		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
+	\end{center}
+\end{frame}
+
+
+\begin{frame}
+	\begin{center}
+		\LARGE\textbf{Desktop}	
 	\end{center}
 \end{frame}
 
 \begin{frame}{Machines Launch}
 	\begin{center}
-		%\ image: boot from server - physical client and virtual one
+		%\ image: boot from server
 		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
 	\end{center}
 	\begin{itemize}
-		\item network launch (PXE, HTTP)
-		\item physical hardware or virtual client mode
-		\item working with every network configuration
+		\item \textbf{network boot} (PXE, HTTP)
+		\item \textbf{clean system} after each launch
+		\item \textbf{no HDD} required
 	\end{itemize}
 \end{frame}
 
@@ -255,40 +277,47 @@
 		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
 	\end{center}
 	\begin{itemize}
-		\item physical mode: best performance, access to original OS is temporary lost
-		\item virtual mode: running inside any OS, benefit of using original OS and GIS.lab at once
+		\item \textbf{physical mode}: best performance, original OS is temporary lost
+		\item \textbf{virtual mode}: any OS, original OS and GIS.lab are available
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Desktop Client}
+\begin{frame}{Office Productivity Suite}
+	\begin{center}
+		%\ image: desktop screenshot with writer, browser, chat ...
+		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
+	\end{center}
+	\begin{itemize}
+		\item \textbf{office} suite
+		\item \textbf{Internet} browser, \textbf{chat}, ...
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Geospatial Suite}
 	\begin{center}
 		%\ image: desktop client screenshot with QGIS, GRASS ...
-		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
+		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/gislab-desktop.png}
 	\end{center}
 	\begin{itemize}
-		\item QGIS as the geospatial project IDE
-		\item integrated with GRASS 7 and others
+		\item \textbf{QGIS} as \textbf{The geospatial project IDE}
+		\item \textbf{QGIS} for data access and processing
+		\item \textbf{GRASS 7} for analysis
+		\item \textbf{PostGIS} or \textbf{SpatiaLite} for storage
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Maps Publishing on Web}
+\begin{frame}{Maps Publishing}
 	\begin{center}
 		%\ image: gis.lab web plugin
-		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
+		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/gislab-publish.png}
 	\end{center}
 	\begin{itemize}
-		\item publish any QGIS project with GIS.lab Web QGIS
-		\item simple wizard
+		\item direct publishing to \textbf{web} or \textbf{mobile} from \textbf{QGIS project}
+		\item simple \textbf{wizard}
 	\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Customization}
-	%\ own client image build system (replacing LTSP)
-	\begin{itemize}
-		\item customization in isolated environment using standard tools
-		\item central system distribution with rollback
-	\end{itemize}
-	
 	\lstset{language=sh}
 	\begin{lstlisting}
 		$ cp /opt/gislab/client-desktop                  # backup
@@ -304,38 +333,30 @@
 		  mv /mnt/backup/client-desktop.backup
 		     /opt/gislab/client-desktop                  # rollback
 	\end{lstlisting}
-\end{frame}
 
-\begin{frame}{Office Suite}
-	\begin{center}
-		%\ image: office suite
-		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
-	\end{center}
 	\begin{itemize}
-		\item general usage desktop productivity platform
-		\item data storage and sharing
-		\item collaboration
-		\item central management
+		\item \textbf{isolated environment}, using \textbf{standard tools}
+		\item \textbf{central} system distribution, \textbf{rollback}
 	\end{itemize}
 \end{frame}
 
 
 \begin{frame}
 	\begin{center}
-		\LARGE\textbf{Web and Mobile Client}	
+		\LARGE\textbf{Web and Mobile}
 	\end{center}
 \end{frame}
 
-\begin{frame}{Web and Mobile Client}
+\begin{frame}{Web and Mobile}
 	\begin{center}
 		%\ image: web and mobile client screenshots
-		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
+		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/gislab-web+mobile.png}
 	\end{center}
 	\begin{itemize}
-		\item themes, base and overlay layers
-		\item advanced search forms
-		\item print outputs
-		\item vector features drawing and sharing
+		\item \textbf{themes}, \textbf{base} and \textbf{overlay} layers
+		\item advanced \textbf{search} forms
+		\item \textbf{print} outputs
+		\item vector features \textbf{drawing} and \textbf{sharing}
 	\end{itemize}
 \end{frame}
 
@@ -465,8 +486,9 @@
 
 \begin{frame}{Where to use ?}
 	\begin{itemize}
-		\item schools, universities - central management, maintenance-free desktop clients
-		\item ...
+		\item \textbf{schools}: central management, maintenance-free clients
+		\item \textbf{small projects}: immediate deployment of complete solution
+		\item \textbf{crisis management}: standalone system, no dependency on Internet
 	\end{itemize}
 \end{frame}
 
@@ -481,10 +503,23 @@
 	\end{itemize}
 \end{frame}
 
+
+\section{Summary}
 \begin{frame}
 	\begin{center}
-		%\ TODO: replace with gislab.io
-		\textbf{http://imincik.github.io/gis-lab}
+		\LARGE\textbf{Summary}
+	\end{center}
+\end{frame}
+
+\begin{frame}{10 minutes from crap to mobile app for free}
+	\begin{center}
+		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\textbf{http://web.gislab.io}
 	\end{center}
 \end{frame}
 
