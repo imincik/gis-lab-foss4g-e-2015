@@ -71,7 +71,7 @@
 
 \begin{frame}{The Problem}
 	\begin{center}
-		Deployment and maintenance of \textbf{complex system is hard} even if things are going flawlessly
+		Deployment and maintenance of \textbf{complex system is time consuming} even if things are going flawlessly
 		\end{center}
 \end{frame}
 
@@ -112,12 +112,12 @@
 
 \begin{frame}{Features}
 	\begin{itemize}[<+->]
-		\item \textbf{plug-and-play} deployment
+		\item \textbf{instant} deployment
 		\item \textbf{central management}
 		\item \textbf{desktop, web and mobile} client interfaces
-		\item automatic \textbf{clustering and resources sharing}
+		\item automatic \textbf{clustering} and \textbf{computing power sharing}
 		\item \textbf{collaboration} tools
-		\item fits in your pocket \textbf{pocket}
+		\item fits in your \textbf{pocket}
 		\item or \textbf{LAN, data center} and \textbf{cloud}
 		\item \textbf{self containing} technology
 	\end{itemize}
@@ -212,9 +212,9 @@
 
 \begin{frame}[fragile]{Virtual Machine - Development and Testing}
 	\begin{center}
-		\includegraphics[keepaspectratio=true,height=0.4\textheight]{images/vagrant.png}
-		\includegraphics[keepaspectratio=true,height=0.4\textheight]{images/virtualbox.png}
-		\includegraphics[keepaspectratio=true,height=0.4\textheight]{images/ansible.png}
+		\includegraphics[keepaspectratio=true,height=0.35\textheight]{images/vagrant.png}
+		\includegraphics[keepaspectratio=true,height=0.35\textheight]{images/virtualbox.png}
+		\includegraphics[keepaspectratio=true,height=0.35\textheight]{images/ansible.png}
 	\end{center}
 
    \lstset{language=sh}
@@ -231,9 +231,10 @@
 		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/gislab-unit.png}
 	\end{center}
 	\begin{itemize}
-		\item portable, pocket size
-		\item plug-and-play
-		\item automatic adaptation to host network
+		\item Intel Haswell, \textbf{16 GB RAM}, \textbf{SSD}, tested with \textbf{20 clients}
+		\item \textbf{portable}, \textbf{pocket size} (11 x 11 x 4 cm)
+		\item \textbf{plug-and-play}
+		\item \textbf{automatic} host \textbf{network adaptation}
 	\end{itemize}
 \end{frame}
 
@@ -262,12 +263,13 @@
 \begin{frame}{Machines Launch}
 	\begin{center}
 		%\ image: boot from server
-		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
+		\includegraphics[keepaspectratio=true,height=0.4\textheight]{images/image.png}
 	\end{center}
 	\begin{itemize}
-		\item \textbf{network boot} (PXE, HTTP)
-		\item \textbf{clean system} after each launch
+		\item \textbf{launching from network} (PXE, HTTP), \textbf{no installation}
+		\item always \textbf{clean system}
 		\item \textbf{no HDD} required
+		\item using full hardware potential
 	\end{itemize}
 \end{frame}
 
@@ -282,20 +284,8 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Office Productivity Suite}
-	\begin{center}
-		%\ image: desktop screenshot with writer, browser, chat ...
-		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
-	\end{center}
-	\begin{itemize}
-		\item \textbf{office} suite
-		\item \textbf{Internet} browser, \textbf{chat}, ...
-	\end{itemize}
-\end{frame}
-
 \begin{frame}{Geospatial Suite}
 	\begin{center}
-		%\ image: desktop client screenshot with QGIS, GRASS ...
 		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/gislab-desktop.png}
 	\end{center}
 	\begin{itemize}
@@ -308,11 +298,10 @@
 
 \begin{frame}{Maps Publishing}
 	\begin{center}
-		%\ image: gis.lab web plugin
 		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/gislab-publish.png}
 	\end{center}
 	\begin{itemize}
-		\item direct publishing to \textbf{web} or \textbf{mobile} from \textbf{QGIS project}
+		\item direct publishing to \textbf{Web} or \textbf{Mobile} from \textbf{QGIS project}
 		\item simple \textbf{wizard}
 	\end{itemize}
 \end{frame}
@@ -369,7 +358,7 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}{Web and Mobile}
+\begin{frame}{Web and Mobile Interface}
 	\begin{center}
 		%\ image: web and mobile client screenshots
 		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/gislab-web+mobile.png}
@@ -434,7 +423,7 @@
 \end{frame}
 
 \begin{frame}[fragile]{Parallel Commands Execution}
-	\textbf{Example installation of Gedit package on all client machines}
+	\textbf{Installation of Gedit package}
 	\lstset{language=sh}
 	\begin{lstlisting}
 		$ MACHINES="$(
@@ -454,14 +443,6 @@
 	\end{lstlisting}
 \end{frame}
 
-\begin{frame}{Stronger With Each Client Machine}
-	\textbf{Universal usage of each machine - full hardware potential utilization}
-	\begin{itemize}
-		\item desktop working environment
-		\item cluster worker node (OWS services, parallel tasks)
-	\end{itemize}
-\end{frame}
-
 \begin{frame}[fragile]{Stronger With Each Client Machine}
 	\textbf{OWS load balancing}
 
@@ -473,10 +454,17 @@
 		  done
 	\end{lstlisting}
 	\begin{center}
-		\includegraphics[keepaspectratio=true,width=\textwidth]{images/haproxy-stats.png}
+		\includegraphics[keepaspectratio=true,width=\textwidth]{images/lb-stats.png}
 	\end{center}
 \end{frame}
 
+\begin{frame}{Special Flavors}
+	\begin{itemize}
+		\item \textbf{server:} no GUI, GIS included
+		\item \textbf{office:} no GIS, office software
+		\item \textbf{lab:} office and GIS software
+	\end{itemize}
+\end{frame}
 
 \section{Other}
 \begin{frame}
@@ -528,7 +516,7 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}{10 Minutes From Crap to Mobile App for Free}
+\begin{frame}{10 Minutes From Scrap to Mobile App for Free}
 	\begin{center}
 		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/image.png}
 	\end{center}
