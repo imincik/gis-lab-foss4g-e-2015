@@ -34,12 +34,12 @@
 \title{GIS.lab}
 \subtitle{news from development of technology for rapid deployment of complete geospatial infrastructure with supercow capabilities}
 \author{Ivan Minčík (imincik)}
-%\setbeamercovered{transparent} 
-%\setbeamertemplate{navigation symbols}{} 
-%\logo{} 
+\setbeamertemplate{navigation symbols}{} 
 \institute{FOSS4G Europe 2015, Como, Italy}
-\date{} 
-%\subject{}
+\date{}
+\titlegraphic{
+	\includegraphics[scale=.1]{images/gislab-logo.png}
+}
 
 
 % document BEGIN
@@ -67,13 +67,13 @@
 
 \begin{frame}{The Problem}
 	\begin{center}
-		We always need \textbf{more than only one app} for our GIS work flow
+		We always need \textbf{more than one app} for our GIS work flow
 	\end{center}
 \end{frame}
 
 \begin{frame}{The Problem}
 	\begin{center}
-		Deployment and maintenance of \textbf{complex system is time consuming} even if things are going flawlessly
+		Deployment and maintenance of \textbf{complex system} is \textbf{time consuming} even when things are going flawlessly
 		\end{center}
 \end{frame}
 
@@ -85,7 +85,7 @@
 
 \begin{frame}{One More Thing}
 	\begin{center}
-		\textbf{Added values} are \textbf{making the product}
+		\textbf{Added values} are making \textbf{successful product}
 	\end{center}
 \end{frame}
 
@@ -106,7 +106,7 @@
 \end{frame}
 
 \begin{frame}{What is GIS.lab ?}
-	\textbf{Free} technology which can \textbf{instantly} turn pile of metal scrap in to the \textbf{high-end geospatial cluster}
+	\textbf{Free} technology which can \textbf{instantly} turn pile of metal scrap in to the \textbf{smoothly working geospatial cluster} with many \textbf{added values}
 	\begin{center}
 		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/gislab-schema.png}
 	\end{center}
@@ -127,7 +127,7 @@
 		\item \textbf{collaboration} tools
 		\item fits in your \textbf{pocket}
 		\item or \textbf{LAN, data center} and \textbf{cloud}
-		\item \textbf{self containing} technology
+		\item \textbf{no dependencies}
 	\end{itemize}
 \end{frame}
 
@@ -139,10 +139,9 @@
 \end{frame}
 
 \begin{frame}{GIS.lab Server}
-	%\ server image
-	\begin{center}
-		\includegraphics[keepaspectratio=true,height=0.3\textheight]{images/image.png}
-	\end{center}
+%\	\begin{center}
+%\		\includegraphics[keepaspectratio=true,height=0.3\textheight]{images/image.png}
+%\	\end{center}
 	\begin{itemize}
 		\item \textbf{cluster} orchestration
 		\item \textbf{data storage} and \textbf{sharing}
@@ -153,12 +152,11 @@
 \end{frame}
 
 \begin{frame}{GIS.lab Clients}
-	%\ clients image
-	\begin{center}
-		\includegraphics[keepaspectratio=true,height=0.3\textheight]{images/image.png}
-	\end{center}
+%\	\begin{center}
+%\		\includegraphics[keepaspectratio=true,height=0.3\textheight]{images/image.png}
+%\	\end{center}
 	\begin{itemize}
-		\item launching \textbf{from server}
+		\item launched \textbf{from server}
 		\item \textbf{user interfaces} for data processing, analysis and collaboration
 		\item \textbf{computing power} for cluster
 	\end{itemize}
@@ -393,7 +391,7 @@
 
 \begin{frame}[plain]{Mobile Interface}
 	\begin{center}
-		\includegraphics[keepaspectratio=true,width=0.4\textwidth]{images/gislab-mobile.png}
+		\includegraphics[keepaspectratio=true,width=0.4\textwidth]{images/gislab-mobile.png}\hspace*{0.5cm}
 		\includegraphics[keepaspectratio=true,width=0.4\textwidth]{images/gislab-mobile-3.png}
 	\end{center}
 \end{frame}
@@ -450,14 +448,17 @@
 \end{frame}
 
 \begin{frame}[fragile]{Parallel Commands Execution}
-	\textbf{Installation of Gedit package}
+	\textbf{Detection of running (alive) client machines}
 	\lstset{language=sh}
 	\begin{lstlisting}
 		$ MACHINES="$(
-		    gislab-cluster members -tag role=client -status=alive
+		    gislab-cluster members -status=alive -tag role=client
 		    | awk -F " " '{printf "%s ", $1}'
 		  )"
-
+	\end{lstlisting}
+	
+	\textbf{Parallel installation of Gedit package}
+	\begin{lstlisting}
 		$ parallel-ssh
 		  -O StrictHostKeyChecking=no -i -H "$MACHINES"
 
@@ -519,17 +520,16 @@
 \begin{frame}{Where to Use ?}
 	\begin{itemize}
 		\item \textbf{schools}: central management, maintenance-free clients
-		\item \textbf{small projects}: immediate deployment of complete solution
-		\item \textbf{crisis management}: standalone system, working w/o Internet
+		\item \textbf{small projects}: complete solution
+		\item \textbf{crisis management}: portable, instant deployment, no dependencies
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Future Plans}
 	\begin{itemize}
+		\item \textbf{web administration} interface
 		\item integration of \textbf{WPS} services
 		\item better \textbf{GRASS} integration
-		\item \textbf{web administration} interface
-		\item \textbf{AWS} provider rewrite
 		\item \textbf{web client} rewrite with \textbf{OL 3}
 		\item update to \textbf{Ubuntu 16.04} and \textbf{systemd}
 	\end{itemize}
