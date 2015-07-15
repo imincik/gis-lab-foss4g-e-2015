@@ -52,8 +52,8 @@
 	\titlepage
 \end{frame}
 
-\begin{frame}{The Super Cow}
-	\textbf{3 years} old, \textbf{100 litres} of milk for \textbf{20 kg} of GRASS daily
+\begin{frame}{The Cow}
+	\textbf{3 years} old, \textbf{30 litres} of milk for \textbf{20 kg} of GRASS daily
 	\begin{center}
 		\includegraphics[keepaspectratio=true,height=0.6\textheight]{images/cow.png}
 	\end{center}
@@ -91,7 +91,7 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}{GIS.lab}
+\begin{frame}{The Super Cow}
 	\textbf{Instantly} in production, \textbf{no feeding}
 	\begin{center}
 		\includegraphics[keepaspectratio=true,height=0.6\textheight]{images/cow-geospatial.png}
@@ -121,7 +121,7 @@
 
 \begin{frame}{Main Features}
 	\begin{itemize}
-		\item \textbf{automatically} installed on \textbf{single machine}
+		\item \textbf{automatic} installation by \textbf{one command} to \textbf{single machine}
 		\item further \textbf{spreading} is done \textbf{without installation}
 		\item \textbf{free software} with many \textbf{added values}
 	\end{itemize}
@@ -134,8 +134,6 @@
 		\item \textbf{desktop, web and mobile} client interfaces
 		\item automatic \textbf{clustering} and \textbf{computing power sharing}
 		\item \textbf{collaboration} tools
-		\item fits in your \textbf{pocket}
-		\item or \textbf{LAN, data center} and \textbf{cloud}
 		\item \textbf{no dependencies}
 	\end{itemize}
 \end{frame}
@@ -155,7 +153,6 @@
 		\item \textbf{data storage} and \textbf{sharing}
 		\item \textbf{central} management
 		\item \textbf{load balancing} management
-		\item \textbf{client initialization} support
 	\end{itemize}
 \end{frame}
 
@@ -170,7 +167,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Desktop, Web and Mobile Interfaces}
+\begin{frame}{Desktop, Web and Mobile Client Interfaces}
 	\begin{center}
 		%\image: desktop + web + mobile schemas
 		\includegraphics[keepaspectratio=true,height=0.5\textheight]{images/gislab-desktop-web-mobile.png}
@@ -234,6 +231,7 @@
    \lstset{language=sh}
 	\begin{lstlisting}
 		$ vagrant up
+
 		Bringing machine 'gislab_vagrant' up with 'virtualbox' provider...
 		==> gislab_vagrant: Importing base box 'precise-canonical'...
 		==> gislab_vagrant: Running provisioner: install (ansible)...
@@ -260,13 +258,13 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}[plain]{QGIS - The Geospatial Project IDE}
+\begin{frame}[plain]{Client Interfaces Architecture}
 	\begin{center}
 		\includegraphics[keepaspectratio=true,width=\textwidth]{images/gislab-client-interfaces.png}
 	\end{center}
 \end{frame}
 
-\begin{frame}[plain]{QGIS - Web and Mobile Publishing}
+\begin{frame}[plain]{Publishing to Web and Mobile}
 	\begin{center}
 		\includegraphics[keepaspectratio=true,width=\textwidth]{images/gislab-publish.png}
 	\end{center}
@@ -323,18 +321,12 @@
 \begin{frame}[fragile]{Customization}
 	\lstset{language=sh}
 	\begin{lstlisting}
-		$ cp /opt/gislab/client-desktop                  # backup
-		     /mnt/backup/client-desktop.backup
-		
 		$ gislab-client-shell -i   # enter client env
+
 		$ apt-get install gedit    # install Gedit
 		$ exit                     # exit client env
+
 		$ gislab-client-image      # deploy updated client image
-		
-		$ rm -rf /opt/gislab/client-desktop
-		  &&
-		  mv /mnt/backup/client-desktop.backup
-		     /opt/gislab/client-desktop                  # rollback
 	\end{lstlisting}
 
 	\begin{itemize}
@@ -453,19 +445,19 @@
 	\textbf{Detection of running (alive) client machines}
 	\lstset{language=sh}
 	\begin{lstlisting}
-		$ MACHINES="$(
-		    gislab-cluster members -status=alive -tag role=client
-		    | awk -F " " '{printf "%s ", $1}'
-		  )"
+		$ MACHINES="$(gislab-cluster members
+			  -status=alive
+			  -tag role=client ...
+		)"
 	\end{lstlisting}
 	
 	\textbf{Parallel installation of Gedit package}
 	\begin{lstlisting}
-		$ parallel-ssh
-		  -O StrictHostKeyChecking=no -i -H "$MACHINES"
+		$ parallel-ssh -H "$MACHINES"
 
 		  sudo DEBIAN_FRONTEND=noninteractive
 		  apt-get install -y --no-install-recommends gedit
+		  
 		  ...
 		  [1] 23:02:57 [SUCCESS] c51
 		  [1] 23:02:57 [SUCCESS] c51
@@ -486,14 +478,6 @@
 	\begin{center}
 		\includegraphics[keepaspectratio=true,width=\textwidth]{images/lb-stats.png}
 	\end{center}
-\end{frame}
-
-\begin{frame}{Special Flavors}
-	\begin{itemize}
-		\item \textbf{server:} no GUI, GIS included
-		\item \textbf{office:} no GIS, office software
-		\item \textbf{lab:} office and GIS software
-	\end{itemize}
 \end{frame}
 
 \section{Other}
@@ -556,6 +540,7 @@
 \begin{frame}[plain]
 	\begin{center}
 		\textbf{http://web.gislab.io}\\
+		\textbf{wiki:Quick-Start}\\
 		\textbf{gis.lab@lists.osgeo.org}
 	\end{center}
 \end{frame}
