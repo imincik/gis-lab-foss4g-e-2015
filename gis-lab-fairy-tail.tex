@@ -190,6 +190,22 @@
 	\end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]{Simple YAML Configuration}
+	\begin{center}
+		\includegraphics[keepaspectratio=true,height=0.4\textheight]{images/ansible.png}
+	\end{center}
+
+   \lstset{language=sh}
+	\begin{lstlisting}
+		# First three octets of private IP range 192.168.0.0 - 192.168.255.255, which will define
+		# network number used for GIS.lab network.
+		# Example: 192.168.1
+		# Change requires GIS.lab re-installation.
+		GISLAB_NETWORK: 192.168.50
+		...
+	\end{lstlisting}
+\end{frame}
+
 \begin{frame}[fragile]{Automatic Installation}
 	\begin{center}
 		\includegraphics[keepaspectratio=true,height=0.4\textheight]{images/ansible.png}
